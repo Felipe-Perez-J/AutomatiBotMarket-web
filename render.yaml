@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: automati-bot-market
+    env: python
+    plan: free
+    branch: main
+    buildCommand: ""
+    startCommand: "python app.py"
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
