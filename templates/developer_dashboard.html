@@ -1,0 +1,241 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - AutomatiBotMarket{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h3 mb-1">
+                        <i class="fas fa-tachometer-alt me-2"></i>Dashboard del Desarrollador
+                    </h1>
+                    <p class="text-muted mb-0">Gestiona tus soluciones y monitorea tu rendimiento</p>
+                </div>
+                <div class="btn-group">
+                    <a href="{{ url_for('add_solution') }}" class="btn btn-primary">
+                        <i class="fas fa-plus me-2"></i>Agregar Solución
+                    </a>
+                    <a href="{{ url_for('reviews') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-star me-2"></i>Reseñas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Métricas Principales -->
+    <div class="row mb-4">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-primary shadow h-100">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Visitas al Perfil
+                            </div>
+                            <div class="h2 mb-0 font-weight-bold text-gray-800">1,247</div>
+                            <div class="mt-2 text-success">
+                                <i class="fas fa-arrow-up me-1"></i>
+                                <span>12% este mes</span>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-eye fa-2x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-success shadow h-100">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                Ventas Totales
+                            </div>
+                            <div class="h2 mb-0 font-weight-bold text-gray-800">48</div>
+                            <div class="mt-2 text-success">
+                                <i class="fas fa-arrow-up me-1"></i>
+                                <span>5 este mes</span>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-shopping-cart fa-2x text-success"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-info shadow h-100">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                Ingresos Totales
+                            </div>
+                            <div class="h2 mb-0 font-weight-bold text-gray-800">$12,450</div>
+                            <div class="mt-2 text-success">
+                                <i class="fas fa-arrow-up me-1"></i>
+                                <span>$1,240 este mes</span>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-dollar-sign fa-2x text-info"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-warning shadow h-100">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                Rating Promedio
+                            </div>
+                            <div class="h2 mb-0 font-weight-bold text-gray-800">4.7/5</div>
+                            <div class="mt-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-star fa-2x text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Panel de Soluciones -->
+        <div class="col-lg-8">
+            <div class="card shadow mb-4">
+                <div class="card-header bg-white py-3">
+                    <h5 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-robot me-2"></i>Mis Soluciones
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="text-center py-5">
+                        <i class="fas fa-code-branch fa-4x text-muted mb-3"></i>
+                        <h4 class="text-dark mb-3">Aún no tienes soluciones publicadas</h4>
+                        <p class="text-muted mb-4">
+                            Comienza agregando tu primera solución de automatización al marketplace
+                        </p>
+                        <a href="{{ url_for('add_solution') }}" class="btn btn-primary btn-lg">
+                            <i class="fas fa-plus me-2"></i>Publicar Primera Solución
+                        </a>
+                    </div>
+
+                    <!-- Placeholder de Soluciones -->
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card placeholder-card h-100">
+                                <div class="card-body">
+                                    <div class="placeholder-image bg-light rounded mb-3" style="height: 100px;"></div>
+                                    <div class="placeholder-title bg-light rounded mb-2" style="height: 20px; width: 70%;"></div>
+                                    <div class="placeholder-text bg-light rounded mb-2" style="height: 16px; width: 90%;"></div>
+                                    <div class="placeholder-text bg-light rounded mb-3" style="height: 16px; width: 60%;"></div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="placeholder-price bg-light rounded" style="height: 24px; width: 40%;"></div>
+                                        <div class="placeholder-badge bg-light rounded" style="height: 24px; width: 30%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="card placeholder-card h-100">
+                                <div class="card-body">
+                                    <div class="placeholder-image bg-light rounded mb-3" style="height: 100px;"></div>
+                                    <div class="placeholder-title bg-light rounded mb-2" style="height: 20px; width: 70%;"></div>
+                                    <div class="placeholder-text bg-light rounded mb-2" style="height: 16px; width: 90%;"></div>
+                                    <div class="placeholder-text bg-light rounded mb-3" style="height: 16px; width: 60%;"></div>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="placeholder-price bg-light rounded" style="height: 24px; width: 40%;"></div>
+                                        <div class="placeholder-badge bg-light rounded" style="height: 24px; width: 30%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Lateral -->
+        <div class="col-lg-4">
+            <!-- Actividad Reciente -->
+            <div class="card shadow mb-4">
+                <div class="card-header bg-white py-3">
+                    <h5 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-chart-line me-2"></i>Actividad Reciente
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="activity-item mb-3 p-3 border-start border-primary">
+                        <div class="small text-gray-500">Hoy</div>
+                        <span class="fw-bold text-primary">15 visitas</span> a tu perfil
+                    </div>
+                    <div class="activity-item mb-3 p-3 border-start border-success">
+                        <div class="small text-gray-500">Ayer</div>
+                        <span class="fw-bold text-success">2 nuevas consultas</span> de empresas
+                    </div>
+                    <div class="activity-item mb-3 p-3 border-start border-info">
+                        <div class="small text-gray-500">Esta semana</div>
+                        <span class="fw-bold text-info">3 ventas</span> realizadas
+                    </div>
+                    <div class="activity-item p-3 border-start border-warning">
+                        <div class="small text-gray-500">Este mes</div>
+                        <span class="text-success fw-bold">+15%</span> en ingresos vs mes anterior
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solicitudes de Empresas -->
+            <div class="card shadow">
+                <div class="card-header bg-white py-3">
+                    <h5 class="m-0 font-weight-bold text-primary">
+                        <i class="fas fa-bullhorn me-2"></i>Solicitudes de Empresas
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="request-item mb-3 p-3 bg-light rounded">
+                        <h6 class="fw-bold text-dark mb-2">Bot para gestión de inventarios</h6>
+                        <p class="small text-muted mb-2">
+                            <i class="fas fa-building me-1"></i>RetailChile S.A.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-warning text-dark">Presupuesto: $2,500</span>
+                            <small class="text-muted">Hace 2 días</small>
+                        </div>
+                    </div>
+                    <div class="request-item p-3 bg-light rounded">
+                        <h6 class="fw-bold text-dark mb-2">Automatización de facturas</h6>
+                        <p class="small text-muted mb-2">
+                            <i class="fas fa-building me-1"></i>Servicios Financieros Ltda.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="badge bg-success">Presupuesto: $1,800</span>
+                            <small class="text-muted">Hace 5 días</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}Marketplace - AutomatiBotMarket{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="row">
+        <!-- Sidebar de Filtros -->
+        <div class="col-md-3">
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-filter me-2"></i>Filtros</h5>
+                </div>
+                <div class="card-body">
+                    <!-- Filtro por Precio -->
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-dark">Rango de Precio</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="priceRange" id="price1">
+                            <label class="form-check-label" for="price1">
+                                Menos de $100
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="priceRange" id="price2">
+                            <label class="form-check-label" for="price2">
+                                $100 - $500
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="priceRange" id="price3">
+                            <label class="form-check-label" for="price3">
+                                $500 - $1,000
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="priceRange" id="price4">
+                            <label class="form-check-label" for="price4">
+                                Más de $1,000
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Filtro por Categoría -->
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-dark">Industria</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="industry1">
+                            <label class="form-check-label" for="industry1">
+                                Retail
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="industry2">
+                            <label class="form-check-label" for="industry2">
+                                Finanzas
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="industry3">
+                            <label class="form-check-label" for="industry3">
+                                Salud
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="industry4">
+                            <label class="form-check-label" for="industry4">
+                                Logística
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Filtro por Tipo de Precio -->
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-dark">Modelo de Precio</h6>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="type1">
+                            <label class="form-check-label" for="type1">
+                                Pago Único
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="type2">
+                            <label class="form-check-label" for="type2">
+                                Suscripción Mensual
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="type3">
+                            <label class="form-check-label" for="type3">
+                                Pago por Uso
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary w-100">
+                        <i class="fas fa-sync-alt me-2"></i>Aplicar Filtros
+                    </button>
+                </div>
+            </div>
+
+            <!-- Banner de Categorías -->
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6 class="fw-bold text-dark">Categorías Populares</h6>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-light text-dark">Facturación</span>
+                        <span class="badge bg-light text-dark">Inventario</span>
+                        <span class="badge bg-light text-dark">Reportes</span>
+                        <span class="badge bg-light text-dark">Datos</span>
+                        <span class="badge bg-light text-dark">CRM</span>
+                        <span class="badge bg-light text-dark">ERP</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div class="col-md-9">
+            <!-- Barra de Búsqueda y Ordenamiento -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-lg" 
+                                       placeholder="Buscar bots por nombre, categoría o función...">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-select form-select-lg">
+                                <option>Ordenar por: Destacados</option>
+                                <option>Precio: Menor a Mayor</option>
+                                <option>Precio: Mayor a Menor</option>
+                                <option>Mejor Calificados</option>
+                                <option>Más Recientes</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estado del Marketplace -->
+            <div class="text-center py-5">
+                <div class="empty-state">
+                    <i class="fas fa-robot fa-5x text-muted mb-4"></i>
+                    <h3 class="text-dark mb-3">Aquí estarán los bots y softwares</h3>
+                    <p class="text-muted mb-4 lead">
+                        Estamos en la versión demo, pero próximamente estará llena de soluciones para usted :)
+                    </p>
+                    
+                    <!-- Placeholder de Bots -->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card placeholder-card">
+                                <div class="card-body text-center p-4">
+                                    <div class="placeholder-image bg-light rounded mb-3" style="height: 120px;"></div>
+                                    <div class="placeholder-title bg-light rounded mb-2" style="height: 20px; width: 80%; margin: 0 auto;"></div>
+                                    <div class="placeholder-text bg-light rounded mb-3" style="height: 16px; width: 60%; margin: 0 auto;"></div>
+                                    <div class="placeholder-price bg-light rounded" style="height: 24px; width: 40%; margin: 0 auto;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card placeholder-card">
+                                <div class="card-body text-center p-4">
+                                    <div class="placeholder-image bg-light rounded mb-3" style="height: 120px;"></div>
+                                    <div class="placeholder-title bg-light rounded mb-2" style="height: 20px; width: 80%; margin: 0 auto;"></div>
+                                    <div class="placeholder-text bg-light rounded mb-3" style="height: 16px; width: 60%; margin: 0 auto;"></div>
+                                    <div class="placeholder-price bg-light rounded" style="height: 24px; width: 40%; margin: 0 auto;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card placeholder-card">
+                                <div class="card-body text-center p-4">
+                                    <div class="placeholder-image bg-light rounded mb-3" style="height: 120px;"></div>
+                                    <div class="placeholder-title bg-light rounded mb-2" style="height: 20px; width: 80%; margin: 0 auto;"></div>
+                                    <div class="placeholder-text bg-light rounded mb-3" style="height: 16px; width: 60%; margin: 0 auto;"></div>
+                                    <div class="placeholder-price bg-light rounded" style="height: 24px; width: 40%; margin: 0 auto;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información Adicional -->
+                    <div class="row mt-5">
+                        <div class="col-md-8 mx-auto">
+                            <div class="card bg-light border-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-dark">¿Qué encontrarás próximamente?</h5>
+                                    <div class="row text-start">
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Bots para procesamiento de facturas</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Soluciones de gestión de inventarios</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Automatización de reportes financieros</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ul class="list-unstyled">
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Herramientas de extracción de datos</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Integraciones con sistemas ERP</li>
+                                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Bots para atención al cliente</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
