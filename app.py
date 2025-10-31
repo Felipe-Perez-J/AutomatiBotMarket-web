@@ -14,7 +14,7 @@ def login(user_type):
     if user_type not in ['business', 'developer']:
         return redirect(url_for('index'))
     
-    flash('El inicio de sesión está deshabilitado mientras la página está en desarrollo :(.')
+    flash('El inicio de sesión está deshabilitado mientras la página está en desarrollo, haga click en "Continuar al ..." :)')
     session['user_type'] = user_type
     return render_template('login.html', user_type=user_type)
 
@@ -49,3 +49,4 @@ def reviews():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
+
